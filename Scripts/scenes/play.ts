@@ -5,6 +5,9 @@ module scenes {
         private _ocean:objects.Ocean;
         private _island:objects.Island;
 
+        private _cloudNum:number;
+        private _clouds:objects.Cloud[];
+
         // constructors
         constructor() {
             super();
@@ -13,6 +16,13 @@ module scenes {
         }
 
         // private methods
+        private _buildClouds():void {
+            for (let count = 0; count < this._cloudNum; count++) {
+                this._clouds.push(new objects.Cloud());
+                //this._clouds[count] = new objects.Cloud();
+                
+            }
+        }
 
         // public methods
         public Start():void {
@@ -21,6 +31,11 @@ module scenes {
             this._ocean = new objects.Ocean();
             this._island = new objects.Island();
 
+            this._cloudNum = 3;
+            // create an empty Array List-like object of clouds
+            this._clouds = new Array<objects.Cloud>();
+            this._buildClouds();
+
             this.Main();
         }
 
@@ -28,6 +43,10 @@ module scenes {
             this._plane.Update();
             this._ocean.Update();
             this._island.Update();
+
+            this._clouds.forEach(cloud => {
+                cloud.Update();
+            });
         }
 
         public Reset():void {
@@ -49,6 +68,11 @@ module scenes {
 
             // add the Plane object to the scene
             this.addChild(this._plane);
+
+            // add the Cloud(s) to the scene
+            for (const cloud of this._clouds) {
+                this.addChild(cloud);
+            }
         }
     }
 }

@@ -10,36 +10,38 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var objects;
 (function (objects) {
-    var Island = /** @class */ (function (_super) {
-        __extends(Island, _super);
+    var Cloud = /** @class */ (function (_super) {
+        __extends(Cloud, _super);
         // constructors
-        function Island() {
-            var _this = _super.call(this, "island") || this;
+        function Cloud() {
+            var _this = _super.call(this, "cloud") || this;
             _this.Start();
             return _this;
         }
         // private methods
-        Island.prototype._checkBounds = function () {
+        Cloud.prototype._checkBounds = function () {
             // check the bottom boundary
             if (this.y >= (config.Screen.HEIGHT + this.height)) {
                 this.Reset();
             }
         };
         // public methods
-        Island.prototype.Start = function () {
-            this._verticalSpeed = 5; // the island will move down 5ppf
+        Cloud.prototype.Start = function () {
             this.Reset();
         };
-        Island.prototype.Update = function () {
+        Cloud.prototype.Update = function () {
+            this.x += this._horizontalSpeed;
             this.y += this._verticalSpeed;
             this._checkBounds();
         };
-        Island.prototype.Reset = function () {
+        Cloud.prototype.Reset = function () {
+            this._verticalSpeed = Math.floor(Math.random() * 5) + 5;
+            this._horizontalSpeed = Math.floor(Math.random() * 4) - 2;
             this.x = Math.floor(Math.random() * (config.Screen.WIDTH - this.width)) + this.halfWidth;
             this.y = -this.height;
         };
-        return Island;
+        return Cloud;
     }(objects.GameObject));
-    objects.Island = Island;
+    objects.Cloud = Cloud;
 })(objects || (objects = {}));
-//# sourceMappingURL=island.js.map
+//# sourceMappingURL=cloud.js.map
