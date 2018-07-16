@@ -1,8 +1,7 @@
 module scenes {
     export class Play extends objects.Scene {
         // member variables
-        private _playLabel: objects.Label;
-        private _nextButton: objects.Button;
+        private _plane:objects.Plane;
 
         // constructors
         constructor() {
@@ -16,14 +15,13 @@ module scenes {
         // public methods
         public Start():void {
 
-            this._playLabel = new objects.Label("Play!", "60px", "Consolas", "#000000", 320, 240, true);
-            this._nextButton = new objects.Button("NextButton", 320, 360, true);
+            this._plane = new objects.Plane();
 
             this.Main();
         }
 
         public Update():void {
-
+            this._plane.Update();
         }
 
         public Reset():void {
@@ -35,12 +33,10 @@ module scenes {
         }
 
         public Main():void {
-            this.addChild(this._playLabel);
-            this.addChild(this._nextButton);
-
-            this._nextButton.on("click", function(){
-                managers.Game.CurrentState = config.Scene.END;
-            }, this);
+            console.log("Started - PLAY SCENE");
+           
+            // add the Plane object to the scene
+            this.addChild(this._plane);
         }
     }
 }

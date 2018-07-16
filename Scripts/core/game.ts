@@ -11,7 +11,11 @@
     let Manifest = [
         {id: "StartButton", src:"/Assets/images/StartButton.png"},
         {id: "NextButton", src:"/Assets/images/NextButton.png"},
-        {id: "BackButton", src:"/Assets/images/BackButton.png"}
+        {id: "BackButton", src:"/Assets/images/BackButton.png"},
+        {id: "plane", src:"/Assets/images/plane.png"},
+        {id: "island", src:"/Assets/images/island.png"},
+        {id: "ocean", src:"/Assets/images/ocean.gif"},
+        {id: "cloud", src:"/Assets/images/cloud.png"}
     ]
 
 
@@ -28,6 +32,9 @@
         console.log(`%c Game Initializing...`,"font-weight:bold; font-size:20px; color: red;");
         canvas = document.getElementsByTagName("canvas")[0];
         stage = new createjs.Stage(canvas);
+
+        managers.Game.Stage = stage;
+
         stage.enableMouseOver(20); // enables mouse over events
         createjs.Ticker.framerate = 60; // sets framerate to 60fps
         createjs.Ticker.on("tick", Update);
@@ -51,7 +58,7 @@
     }
 
     function Main():void {
-        console.log(`%c Main Game Started...`,"font-style:italic; font-size:16px; color:blue;");
+        console.log(`%c Scene Switching...`,"font-style:italic; font-size:16px; color:blue;");
 
         if(CurrentScene) {
             CurrentScene.Destroy();

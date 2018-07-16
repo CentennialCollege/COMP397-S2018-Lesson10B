@@ -33,6 +33,7 @@ var scenes;
             this.removeAllChildren();
         };
         End.prototype.Main = function () {
+            console.log("Started - END SCENE");
             this.addChild(this._endLabel);
             this.addChild(this._backButton);
             this._backButton.on("click", function () {

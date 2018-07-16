@@ -35,6 +35,7 @@ module scenes {
         }
 
         public Main():void {
+            console.log("Started - END SCENE");
             this.addChild(this._endLabel);
             this.addChild(this._backButton);
 

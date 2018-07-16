@@ -33,6 +33,7 @@ var scenes;
             this.removeAllChildren();
         };
         Start.prototype.Main = function () {
+            console.log("Started - START SCENE");
             this.addChild(this._welcomeLabel);
             this.addChild(this._startButton);
             this._startButton.on("click", function () {

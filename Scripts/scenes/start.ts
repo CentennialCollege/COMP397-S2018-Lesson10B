@@ -35,6 +35,7 @@ module scenes {
         }
 
         public Main():void {
+            console.log("Started - START SCENE");
             this.addChild(this._welcomeLabel);
             this.addChild(this._startButton);
 

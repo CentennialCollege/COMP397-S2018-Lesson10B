@@ -13,8 +13,9 @@ var objects;
     var GameObject = /** @class */ (function (_super) {
         __extends(GameObject, _super);
         // constructors
-        function GameObject(imagePath) {
-            var _this = _super.call(this, managers.Game.AssetManager.getResult(imagePath)) || this;
+        function GameObject(imageString) {
+            var _this = _super.call(this, managers.Game.AssetManager.getResult(imageString)) || this;
+            _this.name = imageString;
             _this._initialize();
             return _this;
         }
