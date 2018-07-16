@@ -9,9 +9,11 @@ module managers {
                     object2.isColliding = true;
                     switch(object2.name) {
                         case "island":
+                        createjs.Sound.play("yay");
                         break;
 
                         case "cloud":
+                        createjs.Sound.play("thunder");
                         break;
                     }
                 }
