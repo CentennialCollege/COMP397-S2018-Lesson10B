@@ -44,8 +44,11 @@ module scenes {
             this._ocean.Update();
             this._island.Update();
 
+            managers.Collision.check(this._plane, this._island);
+
             this._clouds.forEach(cloud => {
                 cloud.Update();
+                managers.Collision.check(this._plane, cloud);
             });
         }
 

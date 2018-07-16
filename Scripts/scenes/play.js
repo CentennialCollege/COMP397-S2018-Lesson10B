@@ -37,11 +37,14 @@ var scenes;
             this.Main();
         };
         Play.prototype.Update = function () {
+            var _this = this;
             this._plane.Update();
             this._ocean.Update();
             this._island.Update();
+            managers.Collision.check(this._plane, this._island);
             this._clouds.forEach(function (cloud) {
                 cloud.Update();
+                managers.Collision.check(_this._plane, cloud);
             });
         };
         Play.prototype.Reset = function () {
